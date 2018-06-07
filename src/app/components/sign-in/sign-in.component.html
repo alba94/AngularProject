@@ -1,9 +1,10 @@
 <div>
 <form>
-<input type="text" pInputText placeholder="Username"/>
+<input #myInput type="text" pInputText placeholder="Username"/>
 <input type="password" pInputText placeholder="Password">
 
-<button pButton type="submit"></button>
+<button type="submit" (click)="show()">hello</button>
+<div *ngIf="races.length < 0"><p>hell</p></div>
 
 </form>
 

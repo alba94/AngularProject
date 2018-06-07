@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { UserServiceService } from '../../services/userService/user-service.service';
 
 
@@ -10,6 +10,9 @@ import { UserServiceService } from '../../services/userService/user-service.serv
 export class ClientComponent implements OnInit {
    clientList: any[];
 
+   @Input()
+   private userId: number;
+
   constructor(private userService: UserServiceService) { }
 
   ngOnInit() {
@@ -18,9 +21,8 @@ export class ClientComponent implements OnInit {
 
 
   load() {
-    this.userService.getAll().toPromise().then(response => {
-      this.clientList = response;
-    });
+    this.userService.getAll().subscribe(data =>
+      this.clientList = data);
   }
 
   addNew() {

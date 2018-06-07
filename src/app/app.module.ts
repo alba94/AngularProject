@@ -15,12 +15,10 @@ import { InputTextModule } from 'primeng/inputtext';
 import { appRoute } from './app.routes';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { UserApi } from './user-api';
-import { CommonModule } from '@angular/common';
 
 
 @NgModule({
   declarations: [
-    CommonModule,
     AppComponent,
     ClientComponent,
     SignInComponent

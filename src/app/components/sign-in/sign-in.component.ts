@@ -7,11 +7,16 @@ import { UserApi } from '../../user-api';
   styleUrls: ['./sign-in.component.css']
 })
 export class SignInComponent implements OnInit {
-  submitting = false;
+ submitting = false;
+ races: any[];
 
   constructor(private userApi: UserApi) { }
 
   ngOnInit() {
+  }
+
+  show() {
+    this.races = [{name: 'london'}, {lastname: 'hi'}];
   }
 
 }

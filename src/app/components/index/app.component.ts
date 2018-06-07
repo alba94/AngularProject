@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
+  id: number;
+
+  constructor() {
+    this.id = 1;
+  }
+
 }
