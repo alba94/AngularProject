@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { UserServiceService } from '../../services/userService/user-service.service';
+import { UserService } from '../../services/userService/user.service';
 
 
 @Component({
@@ -13,7 +13,7 @@ export class ClientComponent implements OnInit {
    @Input()
    private userId: number;
 
-  constructor(private userService: UserServiceService) { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
     this.load();
@@ -23,10 +23,6 @@ export class ClientComponent implements OnInit {
   load() {
     this.userService.getAll().subscribe(data =>
       this.clientList = data);
-  }
-
-  addNew() {
-
-  }
+    }
 
 }

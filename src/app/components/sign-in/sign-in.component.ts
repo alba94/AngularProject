@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserApi } from '../../user-api';
+import { UserService } from '../../services/userService/user.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -7,16 +7,15 @@ import { UserApi } from '../../user-api';
   styleUrls: ['./sign-in.component.css']
 })
 export class SignInComponent implements OnInit {
- submitting = false;
- races: any[];
-
-  constructor(private userApi: UserApi) { }
+ 
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
   }
 
-  show() {
-    this.races = [{name: 'london'}, {lastname: 'hi'}];
+  login() {
+    this.userService.login();
   }
+  
 
 }

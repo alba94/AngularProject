@@ -6,15 +6,14 @@ import { ClientComponent } from './components/client/client.component';
 
 
 import { TableModule } from 'primeng/table';
-import { UserServiceService } from './services/userService/user-service.service';
-import { ServicesService } from './services/services.service';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { appRoute } from './app.routes';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { UserApi } from './user-api';
+import { UserService } from './services/userService/user.service';
 
 
 @NgModule({
@@ -34,9 +33,8 @@ import { UserApi } from './user-api';
     RouterModule.forRoot(appRoute)
   ],
   providers: [
-    UserServiceService,
-    ServicesService,
-    { provide: UserApi, useExisting: UserServiceService}
+    UserService,
+    { provide: UserApi, useExisting: UserService}
   ],
   bootstrap: [AppComponent]
 })
