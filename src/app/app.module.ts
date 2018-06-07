@@ -14,7 +14,6 @@ import { ClientComponent } from './components/client/client.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
