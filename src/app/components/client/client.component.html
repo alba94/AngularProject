@@ -1,3 +1,25 @@
-<p>
-  client works!
-</p>
+<input #hello type="text" (keyup.enter)="addNew(hello.value)">
+<button pButton type="button" label="Add new" (click)="addNew()"></button>
+
+<table>
+<thead>
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Id</th>
+    <th>Options</th>
+  </tr>
+</thead>
+<tbody>
+  <tr  *ngFor="let client of clientList">
+    <td>{{ client.id }}</td>
+<td>{{ client.firstname }}</td>
+<td>{{ client.lastname }}</td>
+<td><button>Show</button></td>
+  </tr>
+</tbody>
+</table>
+
+
+<app-sign-in
+></app-sign-in>
