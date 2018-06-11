@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from '../../services/userService/user.service';
+import { IUser } from '../../models/user';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -7,22 +9,32 @@ import { UserService } from '../../services/userService/user.service';
   templateUrl: './client.component.html',
   styleUrls: ['./client.component.css']
 })
+
 export class ClientComponent implements OnInit {
-   clientList: any[];
+   clientList: IUser[];
 
    @Input()
    private userId: number;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit() {
-    this.load();
+    this.loadUsers();
   }
 
 
-  load() {
-    this.userService.getAll().subscribe(data =>
-      this.clientList = data);
+    /*delete(user) {
+      return this.userService.users.splice(user, 1);
+    }*/
+
+    loadUsers() {
+      this.userService.getSmth().toPromise().then(response => {
+        this.clientList = response;
+      },
+    err => console.error(err) ); }
+
+    addUser(): void {
+      this.router.navigate(['add-user']);
     }
 
 }
