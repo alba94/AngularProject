@@ -13,19 +13,23 @@ export class UserService {
     users: IUser[];
 
   constructor(private httpClient: HttpClient) {
+    this.users = [
+      { id: 1,
+        name: 'hello'
+      }];
   }
 
-  getAll(): Observable<any[]> {
+  getAll(): Observable<IUser[]> {
 
     return Observable.of(this.users);
   }
 
-  getSmth(): Observable<IUser[]> {
+  /*getSmth(): Observable<IUser[]> {
     return this.httpClient.get<IUser[]>('http://localhost:8080/api/user');
-  }
+  }*/
 
   add(user: IUser) {
-    return this.httpClient.post('http://localhost:8080/api/user', user);
+    this.users.push(user);
   }
 
   getById(id) {

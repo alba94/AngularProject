@@ -28,10 +28,8 @@ export class ClientComponent implements OnInit {
     }*/
 
     loadUsers() {
-      this.userService.getSmth().toPromise().then(response => {
-        this.clientList = response;
-      },
-    err => console.error(err) ); }
+      this.userService.getAll().subscribe(data => this.clientList = data);
+    }
 
     addUser(): void {
       this.router.navigate(['add-user']);

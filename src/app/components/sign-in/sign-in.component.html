@@ -1,15 +1,15 @@
 <h1>Login </h1>
-      <form>
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
 <div>
           <label for="username">Username:</label>
-          <input size="30" pInputText type="username"  id="username"  name="username" [(ngModel)]="username">
+          <input size="30"  type="username"  name="username"  [(ngModel)]="username" [ngModelOptions]="{standalone: true}">
         </div>
         <br>
         <div>
           <label for="pwd">Password:</label>
-          <input size="30" pInputText type="password" id="password" name="passowrd" [(ngModel)]="password">
+          <input size="30"  type="password" name="password"  [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
         </div>
         <br>
-        <button (click)="login()">Login</button>
+        <button type="submit">Login</button>
       </form>
 

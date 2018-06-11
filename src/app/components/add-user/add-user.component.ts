@@ -16,16 +16,17 @@ export class AddUserComponent implements OnInit {
 
   ngOnInit() {
     this.addForm = this.formBuilder.group({
+      id: ['', Validators.required],
       name: ['', Validators.required]
     });
   }
 
   onSubmit() {
-    this.userService.add( name )
-      .subscribe( data => {
-        this.router.navigate(['client']);
-      });
-      console.log('hello');
+    this.userService.add({
+      id: 2,
+      name: 'al'
+    });
+    console.log('bla bla');
   }
 
 }
